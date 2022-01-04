@@ -1,4 +1,4 @@
-package com.freann.rest.webservices.restfulwebservices.beans;
+package com.freann.rest.webservices.restfulwebservices.helloworld.beans;
 
 public class HelloWorldBean {
 
