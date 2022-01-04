@@ -1,0 +1,38 @@
+{
+	"info": {
+		"_postman_id": "e33e3c37-0e08-4e0f-a372-16eb4a74ea92",
+		"name": "User package",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":null,\"name\":\"Waluigi\",\"birthDate\":\"2022-01-04T17:59:11.955+00:00\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
