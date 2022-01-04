@@ -2,10 +2,7 @@ package com.freann.rest.webservices.restfulwebservices.user;
 
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 @Component
 public class UserDaoService {
@@ -34,5 +31,18 @@ public class UserDaoService {
 
     public User findById(Integer id) {
         return users.stream().filter(user -> Objects.equals(user.getId(), id)).findFirst().orElse(null);
+    }
+
+    public User deleteById(Integer id) {
+        Iterator<User> iterator = users.iterator();
+        while (iterator.hasNext()) {
+            User user = iterator.next();
+            if (Objects.equals(user.getId(), id)) {
+                iterator.remove();
+                --usersCounter;
+                return user;
+            }
+        }
+        return null;
     }
 }

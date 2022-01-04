@@ -33,24 +33,6 @@
 				}
 			},
 			"response": []
-		},
-		{
-			"name": "delete user",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": null
-			},
-			"response": []
-		},
-		{
-			"name": "get users",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": null
-			},
-			"response": []
 		}
 	]
 }
