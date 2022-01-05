@@ -6,8 +6,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
+
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
+import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 
 @RestController
 @RequestMapping("users")
@@ -22,16 +28,21 @@ public class UserResource {
     }
 
     @GetMapping("/{id}")
-    public User findById(@PathVariable Integer id) {
+    public EntityModel<User> findById(@PathVariable Integer id) {
         User user = this.userDaoService.findById(id);
         if (user == null) {
             throw new UserNotFoundException("id-" + id);
         }
-        return user;
+        EntityModel<User> resource = EntityModel.of(user);
+        WebMvcLinkBuilder linkTo =
+                linkTo(methodOn(this.getClass()).getAllUsers());
+        resource.add(linkTo.withRel("all-users"));
+
+        return resource;
     }
 
     @PostMapping
-    public ResponseEntity<Object> createUser(@RequestBody User user) {
+    public ResponseEntity<Object> createUser(@Valid @RequestBody User user) {
         User savedUser = this.userDaoService.saveUser(user);
 
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()

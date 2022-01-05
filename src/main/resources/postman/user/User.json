@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"id\":null,\"name\":\"Waluigi\",\"birthDate\":\"2022-01-04T17:59:11.955+00:00\"}",
+					"raw": "{\r\n    \"id\": null,\r\n    \"name\": \"Waluigi\",\r\n    \"birthDate\": \"2022-01-04T17:59:11.955+00:00\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -37,14 +37,45 @@
 		{
 			"name": "delete user",
 			"request": {
-				"method": "GET",
+				"method": "DELETE",
 				"header": [],
-				"url": null
+				"url": {
+					"raw": "http://localhost:8080/users/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"4"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "get users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user by id",
 			"request": {
 				"method": "GET",
 				"header": [],
