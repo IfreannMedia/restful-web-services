@@ -1,0 +1,27 @@
+{
+	"info": {
+		"_postman_id": "8ef25128-1924-43c2-bc1f-7b9ed7291328",
+		"name": "Filtering Package",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "filtering example",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "filtering list example",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		}
+	]
+}
