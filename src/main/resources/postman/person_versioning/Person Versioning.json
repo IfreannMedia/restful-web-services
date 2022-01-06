@@ -58,6 +58,162 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Get Person V1 Param",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/person/param?version=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"person",
+						"param"
+					],
+					"query": [
+						{
+							"key": "version",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Person V2 Param",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/person/param?version=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"person",
+						"param"
+					],
+					"query": [
+						{
+							"key": "version",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Person V1 header",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-API-VERSION",
+						"value": "1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/person/header",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"person",
+						"header"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Person V2 header",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-API-VERSION",
+						"value": "2",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/person/header",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"person",
+						"header"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Person V1 produces",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.company.app-v1+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/person/produces",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"person",
+						"produces"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Person V2 produces",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.company.app-v2+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/person/produces",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"person",
+						"produces"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
