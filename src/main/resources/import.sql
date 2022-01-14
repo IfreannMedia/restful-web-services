@@ -1,3 +1,5 @@
-insert into users values(1, sysdate(), 'Bob');
-insert into users values(2, sysdate(), 'Nolan');
-insert into users values(3, sysdate(), 'Richard');
+--create table users ()
+
+insert into user values(10001, sysdate(), 'Bob');
+insert into user values(10002, sysdate(), 'Nolan');
+insert into user values(10003, sysdate(), 'Richard');
