@@ -3,12 +3,11 @@ package com.freann.rest.webservices.restfulwebservices.user;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 import java.util.Date;
+import java.util.List;
 
 @ApiModel(description = "The user representation in the app")
 @Entity
@@ -25,6 +24,9 @@ public class User {
     @Past
     @ApiModelProperty(notes = "must be in the past")
     private Date birthDate;
+
+    @OneToMany( mappedBy = "user")
+    private List<Post> posts;
 
     public User() {
     }
@@ -57,6 +59,14 @@ public class User {
 
     public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
+    }
+
+    public List<Post> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
     }
 
     @Override

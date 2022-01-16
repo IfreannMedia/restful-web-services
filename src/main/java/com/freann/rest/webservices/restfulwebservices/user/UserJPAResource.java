@@ -26,7 +26,9 @@ public class UserJPAResource {
     @Autowired
     private UserRepository userRepository;
 
-    @GetMapping
+    @Autowired PostRepository postRepository;
+
+    @GetMapping("")
     public List<User> getAllUsers() {
         return this.userRepository.findAll();
     }
@@ -58,11 +60,34 @@ public class UserJPAResource {
 
     @DeleteMapping("/{id}")
     public void deleteUserById(@PathVariable Integer id) {
-//        User deletedUser = this.userRepository.deleteById(id);
         this.userRepository.deleteById(id);
-//        if (deletedUser == null) {
-//            throw new UserNotFoundException("id-" + id);
-//        }
     }
+
+    @GetMapping("/{id}/posts")
+    public List<Post> getPostsFromUser(@PathVariable int id) {
+        Optional<User> user = this.userRepository.findById(id);
+        if (user.isPresent()) {
+            return user.get().getPosts();
+        } else {
+            throw new UserNotFoundException("no user found with id: " + id);
+        }
+    }
+
+    @PostMapping("/{id}/posts")
+    public ResponseEntity<Object> createNewPostForUser(@PathVariable int id, @RequestBody Post post) {
+        Optional<User> userOptional = this.userRepository.findById(id);
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            post.setUser(user);
+            this.postRepository.save(post);
+            URI location = ServletUriComponentsBuilder.fromCurrentRequest()
+                    .path("/{id}")
+                    .buildAndExpand(post.getId()).toUri();
+            return ResponseEntity.created(location).build();
+        } else {
+            throw new UserNotFoundException("no user found with id: " + id);
+        }
+    }
+
 
 }
